@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
-
+import 'package:clima/services/networking.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'location_screen.dart';
 
 const apiKey = 'b3d752074ccc4ba43839a9ec1ca47c23';
 
@@ -10,48 +12,42 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-
   late double latitude;
   late double longitude;
 
-  void initState(){
+  @override
+  void initState() {
     super.initState();
-    getLocation();
+    getLocationData();
   }
 
-  void getLocation() async {
-   Location location = Location();
-   await location.getCurrentLocation();
+  void getLocationData() async {
+    Location location = Location();
+    await location.getCurrentLocation();
 
-   latitude = location.latitude;
-   longitude = location.longitude;
-   getData();
-  }
-  
-  void getData() async {
-    var url = Uri.parse(
-        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey',
-    );
-    http.Response response = await http.get(url);
-    if(response.statusCode == 200){
-      String data = response.body;
+    latitude = location.latitude;
+    longitude = location.longitude;
 
-      var decodedData = jsonDecode(data);
-      int condition = decodedData['weather'][0]['id'];
-      String cityName = decodedData['name'];
-      double temperature = decodedData['main']['temp'];
+    var networkHelper = NetworkHelper(
+        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
 
-      print(cityName);
-      print(temperature);
-      print(condition);
-    }
-    else {
-      print(response.statusCode);
-    }
+    var weatherData = await networkHelper.getData();
+
+    // For example, you can navigate to another screen with the data.
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LocationScreen(locationWeather: weatherData);
+    }));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: SpinKitDoubleBounce(
+          color: Colors.white,
+          size: 100.0,
+        ),
+      ),
+    );
   }
 }
