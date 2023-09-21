@@ -16,7 +16,6 @@ class _LocationScreenState extends State<LocationScreen> {
   String weatherIcon = "/0";
   String weatherMessage = "/0";
 
-
   @override
   void initState() {
     super.initState();
@@ -37,7 +36,7 @@ class _LocationScreenState extends State<LocationScreen> {
     });
     print(cityName);
     print(temperature);
-  } 
+  }
 
   @override
   Widget build(BuildContext context) {
