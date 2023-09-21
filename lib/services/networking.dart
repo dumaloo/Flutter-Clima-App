@@ -13,8 +13,6 @@ class NetworkHelper {
       return jsonDecode(data);
     } else {
       print(response.statusCode);
-      // You might want to handle errors more gracefully here.
-      // For example, throw an exception or return an error message.
     }
   }
 }
