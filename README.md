@@ -29,7 +29,7 @@ Clima is a Flutter-based weather application that leverages the Open Weather API
 
 ## Screenshots
 
-![Screenshot 1](/screenshots/screenshot1.jpeg)
+![Screenshot 1](screenshots/screenshot1.jpeg)
 ![Screenshot 2](/screenshots/screenshot2.jpeg)
 
 ## Getting Started
