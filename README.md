@@ -29,9 +29,10 @@ Clima is a Flutter-based weather application that leverages the Open Weather API
 
 ## Screenshots
 
-![screenshot1](https://github.com/dumaloo/Flutter-Clima-App/assets/130795836/fc6fa8c6-e2a6-40ee-80e0-f9b499af8e8c)
-![screenshot2](https://github.com/dumaloo/Flutter-Clima-App/assets/130795836/0c1929a3-0cd4-4aa8-b4ca-96365e2873e7)
-
+<div style="display: flex;">
+    <img src="https://github.com/dumaloo/Flutter-Clima-App/assets/130795836/fc6fa8c6-e2a6-40ee-80e0-f9b499af8e8c" alt="screenshot1" width="200" style="margin-right: 20px;">
+    <img src="https://github.com/dumaloo/Flutter-Clima-App/assets/130795836/0c1929a3-0cd4-4aa8-b4ca-96365e2873e7" alt="screenshot2" width="200">
+</div>
 
 ## Getting Started
 
