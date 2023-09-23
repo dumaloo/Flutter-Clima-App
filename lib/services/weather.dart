@@ -26,33 +26,29 @@ class WeatherModel {
 
   String getWeatherIcon(int condition) {
     if (condition < 300) {
-      return '🌩';
-    } else if (condition < 400) {
-      return '🌧';
+      return '🌩'; // Thunderstorms
     } else if (condition < 600) {
-      return '☔️';
+      return '🌧'; // Rain
     } else if (condition < 700) {
-      return '☃️';
-    } else if (condition < 800) {
-      return '🌫';
+      return '❄️'; // Snow
     } else if (condition == 800) {
-      return '☀️';
+      return '☀️'; // Clear sky
     } else if (condition <= 804) {
-      return '☁️';
+      return '☁️'; // Cloudy
     } else {
-      return '🤷‍';
+      return '🤷‍'; // Unknown or other conditions
     }
   }
 
   String getMessage(int temp) {
-    if (temp > 25) {
-      return 'It\'s 🍦 time';
-    } else if (temp > 20) {
-      return 'Time for shorts and 👕';
-    } else if (temp < 10) {
-      return 'You\'ll need 🧣 and 🧤';
+    if (temp > 35) {
+      return 'It\'s 🌞 time'; // Hot weather
+    } else if (temp > 25) {
+      return 'Time for shorts and 👕'; // Warm weather
+    } else if (temp < 15) {
+      return 'You\'ll need 🧣 and 🧤'; // Cold weather
     } else {
-      return 'Bring a 🧥 just in case';
+      return 'Bring a 🧥 just in case'; // Moderate weather
     }
   }
 }
